@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script>
+			/*
+			*
+			* 判断PC端与WAP端
+			*/
+			var mobile_bs = {
+			    versions: function() {
+			        var u = navigator.userAgent;
+			        return {
+			            trident: u.indexOf('Trident') > -1, //IE内核
+			            presto: u.indexOf('Presto') > -1,  //opera内核
+			            webKit: u.indexOf('AppleWebKit') > -1,  //苹果、谷歌内核
+			            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,  //火狐内核
+			            mobile: !! u.match(/AppleWebKit.*Mobile.*/) || !! u.match(/AppleWebKit/) && u.indexOf('QIHU') && u.indexOf('QIHU') > -1 && u.indexOf('Chrome') < 0,  //是否为移动终端
+			            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),  //ios终端
+			            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,  //android终端或者uc浏览器
+			            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,   //是否为iPhone或者QQHD浏览器
+			            iPad: u.indexOf('iPad') > -1,     //是否iPad
+			            webApp: u.indexOf('Safari') == -1   //是否web应该程序，没有头部与底部
+			        }
+			    } ()
+			};
+			
+			if (mobile_bs.versions.mobile) {
+			　　window.location.href = "indexphone.html";
+			}
+		</script>
+	</head>
+	<body>
+		<div class="body_container">
+			<!-- //头部 -->
+			<div class="header">
+				<!-- 上半 -->
+				<div class="header-nav">
+					<i class="fa fa-windows fa-spin" style="font-size: 25px;"></i> 
+					<a>ybq</a>
+					<div id="user" style="display: inline-block;">
+						<div v-if="role == 'admin'">{{name}},管理员您好</div>
+						<div v-else-if="role == 'user'">{{name}},欢迎回来</div>
+						<div v-else>您没有权限访问此页面</div>
+					</div>
+				</div>
+				
+				<div class="header-menu">
+					<a href="#" class="current">
+						<i class="fa fa-home">&nbsp;主页</i>
+					</a>
+					<a href="#">
+						<i class="fa layui-icon layui-icon-fonts-code">&nbsp;编程技术</i>
+					</a>
+					<a href="#">
+						<i class="fa">奇淫技巧</i>
+					</a>
+				</div>
+			</div>
+			<!-- 身体主体部分 -->
+			<div class="container">
+				<!-- 搜索导航条 -->
+				<div class="container-nav">
+					<div class="container-nav-push">
+						<!-- <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i> -->
+						<a href="javascript:history.go(-1)"><i class="fa fa-arrow-left"></i></a>
+						<i class="fa fa-arrow-right"></i>
+						<i class="fa fa-chevron-down" id="push-3" aria-hidden="true" title="最近浏览的位置">
+							
+						</i>
+						<div class="push-3">
+							<ul>
+								<li>桌面文件夹</li>
+							</ul>
+						</div>
+					</div>
+					<!-- 显示当前页面 -->
+					<div class="container-nav-search">
+						<!-- <div class="search-icon">
+							<i class="fa fa-file-code-o fa-3x" aria-hidden="true"></i> 
+						</div> -->
+						<button class="search-icon">
+							<i class="fa fa-file-code-o" aria-hidden="true" style="font-weight: bold;color: #388e3c;"></i> 
+						</button>
+						<!-- 获取url -->
+						<div id="search-input" style="display: inline-block; ">
+							<span style="font-weight: 600;">> 本网站&nbsp;</span> <url></url>
+						</div>
+						
+						<i class="fa fa-undo" aria-hidden="true"></i>
+						<div class="search-down"></div>
+					</div>
+					<div class="container-nav-searchs">
+						<input type="text" class="search-inputs" id="getURLParameters" placeholder="  搜索'本网站'" />
+						<div class="search-icons">
+							<i class="fa fa-search fa-flip-horizontal" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+				<!-- 左侧内容 -->
+				<div class="container-left">
+					<div class="container-left-up"></div>
+					<div class="container-left-down"></div>
+					
+				</div>
+				<!-- 右侧内容 -->
+				<div class="container-right"></div>
+				
+			</div>
+			<!-- jio -->
+			<div class="container-footer">11</div>
+		</div>
+		
+		<footer></footer>
+	
+	<!-- vue自定义组件 -->
+	<template id="url_component_tpl">
+		<url></url>
+	</template>
+	
+	
+	<script src="js/vue.js"></script>
+	<!-- 引入JQuery -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="layui/layui.js"></script>
+	<script type="text/javascript">
+		//vue
+		// 用户判断
+		var user = new Vue({
+			el: "#user",
+			data: {
+				name: '杨柏钦',
+				role: 'admin',
+			}
+		})
+		//获取url地址并进行反馈
+		Vue.component('faurl',{
+			template:'#url_component_tpl',
+		})
+		
+		Vue.component('url',{
+			template:'<input type="text" class="search-input" :value="geturl" />',
+			data:function(){
+				var test = window.location.pathname;
+				return{
+					geturl: test,
+				}
+			}
+		});
+		
+		new Vue({
+			el: '#search-input',
+		})
+		
+		//最近浏览位置弹窗
+		
+			$('#push-3').click(function(){
+				$('.push-3').toggle();
+			})
+		
+		
+			//layui模块化
+			layui.use(['layer', 'form'], function() {
+				var layer = layui.layer,
+					form = layui.form;
+			});
+	</script>
+	</body>
+</html>

@@ -1,0 +1,165 @@
+body{
+	/* transform: scale(.8, .8) translate(0, -12.5%) */
+	zoom: 78%
+}
+.body_container {
+	height: 850px;
+	/* padding: 0 60px; */
+	max-height: 850px;
+	/* max-width: 1150px; */
+	max-width: 1210px;
+	margin: 0 auto;
+	margin-top: 40px;
+	/* border: 1px solid #dfe1e5; */
+	-webkit-box-shadow: #666 0px 0px 7px;
+	   -moz-box-shadow: #666 0px 0px 7px;
+	   box-shadow: #666 0px 0px 7px;
+}
+.header-nav {
+	
+	padding: 10px 10px;
+}
+.header-nav a{
+	/* position: absolute; */
+	font-size: 22px;
+	display:  inline-block;
+	padding-left: 10px;
+	color: #70757a;
+}
+/*  */
+.header{
+	border-bottom: 1px solid #ddd;
+	/* 设置网页内容无法被复制 */
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	-khtml-user-select:none;
+	-o-user-select:none;
+	user-select:none;
+}
+.header-menu{
+	margin: 10px 0 -1px;
+	
+	
+}
+.header-menu a{
+	display: inline-block;
+	padding: 3px 20px 3px;
+	line-height: 30px;
+	color: #444;
+	font-size: 20px;
+	border: 1px solid transparent;
+}
+.fa{
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+}
+.header-menu a.current{
+	border: 1px solid #ddd;
+	border-bottom-color: #fff;
+}
+/*  */
+.container-nav{
+	margin-top: 10px;
+	/* 设置网页内容无法被复制 */
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	-khtml-user-select:none;
+	-o-user-select:none;
+	user-select:none;
+}
+/* 返回上一页面按钮 */
+.container-nav-push{
+	display: inline-block;
+	margin-left: 10px;
+	line-height: 27px;
+	color: #8D8D8D;
+}
+.container-nav-push i{
+	padding: 0 10px;
+	height: 100%;
+}
+.container-nav-push i:hover{
+	color: #0091ea;
+}
+/* 最近浏览位置弹窗 */
+.push-3{
+	position: absolute;
+	top: 18%;
+	border: 1px solid gray;
+	background-color: #ddd;
+	color: #000000;
+	display: none;
+}
+.push-3 ul{
+	width: 130px;
+}
+.push-3 li{
+	text-align: center;
+}
+.container-nav-search{
+	display: inline-block;
+	max-height: 27px;
+	
+	/* width: 700px; */
+	border: 1px solid #dddd;
+}
+.container-nav-searchs{
+	
+	display: inline-block;
+	max-height: 27px;
+	margin-left: 20px;
+	/* width: 260px; */
+	border: 1px solid #dddd;
+}
+.search-icon{
+	/* position: absolute; */
+	border-color: transparent;
+	background: transparent;
+	display: inline-block;
+	margin-left: 3px;
+	padding: 0;
+	height: 27px;
+}
+.search-icons{
+	display: inline-block;
+	padding-right: 10px;
+}
+.search-input{
+	display: inline-block;
+	
+	height: 27px;
+	line-height: 27px;
+	width: 640px;
+	padding: 0;
+	overflow: hidden;
+	border: none;
+	resize: none;
+}
+.search-inputs{
+	display: inline-block;
+	height: 27px;
+	line-height: 27px;
+	width: 285px;
+	padding: 0;
+	overflow: hidden;
+	border: none;
+	resize: none;
+}
+.container-left{
+	display: inline-block;
+	border: 1px solid red;
+	width: 24%;
+	height: 690px;
+}
+.container-right{
+	display: inline-block;
+	border: 1px solid yellow;
+	width: 75%;
+}
+
+/* jio */
+.container-footer{
+	border: 1px solid #8D8D8D;
+}
